@@ -12,7 +12,7 @@ router.route("/")
 // contacts:id
 router.route("/:id")
   .get(getContact)
-  .post(updateContact)
+  .put(updateContact)
   .delete(deleteContact);
 
 export default router;
