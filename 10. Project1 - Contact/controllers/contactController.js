@@ -8,6 +8,12 @@ const getAllContacts = asyncHandler(async (req, res) => {
   res.render("index", { contacts: contacts });
 });
 
+// View add Contact form
+// Get /contacts/add
+const addContactForm = (req, res) => {
+  res.render("add");
+};
+
 // Create contact
 // Post /contacts
 const createContacts = asyncHandler(async (req, res) => {
@@ -65,5 +71,6 @@ export {
   createContacts, 
   getContact, 
   updateContact,
-  deleteContact
+  deleteContact,
+  addContactForm,
 };
