@@ -5,11 +5,7 @@ import Contact from "../models/contactModel.js";
 // Get /contacts
 const getAllContacts = asyncHandler(async (req, res) => {
   const contacts = await Contact.find();
-  const users = [
-    {name: "kim", email: "kim@asdf.com", phone: "2134"},
-    {name: "Lee", email: "Lee@axdx.com", phone: "26651"},
-  ];
-  res.render("getAll", { users: users });
+  res.render("index", { contacts: contacts });
 });
 
 // Create contact
