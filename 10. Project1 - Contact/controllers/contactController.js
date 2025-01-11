@@ -56,14 +56,10 @@ const updateContact = asyncHandler(async (req, res) => {
 
 const deleteContact = asyncHandler(async (req, res) => {
   const id = req.params.id;
-  const contact = await Contact.findById(id);
+  
+  await Contact.findByIdAndDelete(id);
 
-  if (!contact) {
-    throw new Error("Contact not found");
-  }
-
-  await Contact.deleteOne();
-  res.send("Deleted");
+  res.redirect("/contacts");
 });
 
 export { 
