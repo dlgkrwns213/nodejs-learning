@@ -33,7 +33,7 @@ const createContacts = asyncHandler(async (req, res) => {
 // Get /contacts/:id
 const getContact = asyncHandler( async (req, res) => {
   const contact = await Contact.findById(req.params.id);
-  res.send(contact);
+  res.render("update", {contact: contact});
 });
 
 const updateContact = asyncHandler(async (req, res) => {
