@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
-import router from "./routes/main.js";
+import routerMain from "./routes/main.js";
+import routerAdmin from "./routes/admin.js";
 import expressLayouts from "express-ejs-layouts";
 import connectDb from "./config/db.js";
 
@@ -17,7 +18,8 @@ app.set("views", "./views");
 
 app.use(express.static("public"));
 
-app.use("/", router);
+app.use("/", routerMain);
+app.use("/", routerAdmin);
 
 app.listen(port, ()=> {
   console.log(`Application listening on port ${port}`)
