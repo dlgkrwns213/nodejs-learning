@@ -4,6 +4,7 @@ import routerMain from "./routes/main.js";
 import routerAdmin from "./routes/admin.js";
 import expressLayouts from "express-ejs-layouts";
 import connectDb from "./config/db.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -20,6 +21,8 @@ app.use(express.static("public"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cookieParser());
 
 app.use("/", routerMain);
 app.use("/", routerAdmin);
