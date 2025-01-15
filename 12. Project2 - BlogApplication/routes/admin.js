@@ -133,4 +133,11 @@ router.put("/edit/:id", checkLogin, asyncHandler( async (req, res) => {
   res.redirect("/allPosts");
 }));
 
+// Admin - Delete Post
+// DELETE /delete/:id
+router.delete("/delete/:id", checkLogin, asyncHandler( async (req, res) => {
+  await Post.deleteOne({ _id: req.params.id });
+  res.redirect("/allPosts");
+}));
+
 export default router;
